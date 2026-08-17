@@ -12,6 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <style>
         :root {
@@ -152,20 +153,23 @@
         }
 
         .links {
-            margin-top: 16px;
+            margin-top: 18px;
             display: flex;
             flex-wrap: wrap;
-            gap: 6px 18px;
-            font-family: var(--mono);
-            font-size: 13px;
+            gap: 20px;
+            font-size: 20px;
         }
 
         .links a {
-            white-space: nowrap;
+            color: var(--link);
+            transition: color 0.15s ease, transform 0.15s ease;
+            display: inline-block;
+            text-decoration: none;
         }
 
-        .links span.sep {
-            color: var(--rule);
+        .links a:hover {
+            color: var(--link-hover);
+            transform: translateY(-2px);
         }
 
         /* ---------- Nav ---------- */
@@ -494,16 +498,11 @@
                         University</span>
                 </div>
                 <div class="links">
-                    <a href="mailto:havural24@ku.edu.tr">Mail</a>
-                    <span class="sep">/</span>
-                    <a href="https://www.linkedin.com/in/haticemervevural/" target="_blank" rel="noopener">LinkedIn</a>
-                    <span class="sep">/</span>
-                    <a href="https://github.com/mervehmv" target="_blank" rel="noopener">GitHub</a>
-                    <span class="sep">/</span>
-                    <a href="https://scholar.google.com/citations?user=-yjEESwAAAAJ&hl=en" target="_blank"
-                        rel="noopener">Google Scholar</a>
-                    <span class="sep">/</span>
-                    <a href="assets/Vural, Hatice Merve - CV.pdf" target="_blank" rel="noopener">CV</a>
+                    <a href="mailto:havural24@ku.edu.tr" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/haticemervevural/" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/mervehmv" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://scholar.google.com/citations?user=-yjEESwAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="fa-brands fa-google-scholar"></i></a>
+                    <a href="assets/Vural, Hatice Merve - CV.pdf" target="_blank" rel="noopener" title="CV (PDF)"><i class="fa-solid fa-file-pdf"></i></a>
                 </div>
             </div>
         </div>
