@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hatice Merve Vural — Academic Page</title>
+    <meta name="description" content="Hatice Merve Vural, MSc student — research, publications, CV.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --paper: #FAF9F6;
+            --paper-dim: #F2F0EA;
+            --ink: #1B1F27;
+            --ink-soft: #4A4E57;
+            --muted: #6B6F76;
+            --rule: #DCD7CA;
+            --accent: #2F6E62;
+            /* deep green-teal */
+            --accent-dim: #9CC4B9;
+            --link: #1F5C73;
+            /* blue-teal */
+            --link-hover: #143E4D;
+
+            --serif: 'Source Serif 4', Georgia, serif;
+            --sans: 'Inter', -apple-system, sans-serif;
+            --mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+            --max-w: 780px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        a {
+            color: var(--link);
+            text-decoration-color: var(--accent-dim);
+            text-underline-offset: 3px;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+            text-decoration-color: var(--link-hover);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
+
+        .wrap {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---------- Header ---------- */
+
+        header.hero {
+            padding: 88px 0 56px;
+            opacity: 0;
+            animation: rise 0.7s ease forwards;
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 128px 1fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 128px;
+            height: 128px;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid var(--rule);
+            background: var(--paper-dim);
+        }
+
+        .eyebrow {
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: var(--serif);
+            font-weight: 600;
+            font-size: 40px;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+        }
+
+        .affil {
+            margin-top: 8px;
+            color: var(--ink-soft);
+            font-size: 16px;
+        }
+
+        .affil .dept {
+            color: var(--muted);
+        }
+
+        .links {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 18px;
+            font-family: var(--mono);
+            font-size: 13px;
+        }
+
+        .links a {
+            white-space: nowrap;
+        }
+
+        .links span.sep {
+            color: var(--rule);
+        }
+
+        /* ---------- Nav ---------- */
+
+        nav.section-nav {
+            border-top: 1px solid var(--rule);
+            border-bottom: 1px solid var(--rule);
+            background: var(--paper);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(6px);
+        }
+
+        nav.section-nav .wrap {
+            display: flex;
+            gap: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            overflow-x: auto;
+        }
+
+        nav.section-nav a {
+            font-family: var(--mono);
+            font-size: 12.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--ink-soft);
+            text-decoration: none;
+            white-space: nowrap;
+            padding: 2px 0;
+            border-bottom: 1px solid transparent;
+        }
+
+        nav.section-nav a:hover {
+            color: var(--ink);
+            border-bottom-color: var(--accent);
+        }
+
+        /* ---------- Sections ---------- */
+
+        section {
+            padding: 56px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .section-num {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--accent);
+        }
+
+        h2 {
+            font-family: var(--serif);
+            font-weight: 600;
+            font-size: 22px;
+            letter-spacing: -0.005em;
+        }
+
+        p {
+            color: var(--ink-soft);
+            max-width: 64ch;
+        }
+
+        p+p {
+            margin-top: 14px;
+        }
+
+        /* ---------- About ---------- */
+
+        .about-text p {
+            font-size: 15.5px;
+        }
+
+        .interests-tags {
+            margin-top: 22px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .interests-tags span {
+            font-family: var(--mono);
+            font-size: 12.5px;
+            padding: 5px 10px;
+            border: 1px solid var(--rule);
+            border-radius: 3px;
+            color: var(--ink-soft);
+        }
+
+        /* ---------- Education / CV timeline ---------- */
+
+        .cv-item {
+            display: grid;
+            grid-template-columns: 108px 1fr;
+            gap: 20px;
+            padding: 16px 0;
+            border-top: 1px solid var(--rule);
+        }
+
+        .cv-item:first-of-type {
+            border-top: none;
+        }
+
+        .cv-date {
+            font-family: var(--mono);
+            font-size: 12.5px;
+            color: var(--muted);
+            padding-top: 2px;
+        }
+
+        .cv-role {
+            font-weight: 600;
+            font-size: 15.5px;
+            color: var(--ink);
+        }
+
+        .cv-org {
+            color: var(--ink-soft);
+            font-size: 14.5px;
+            margin-top: 2px;
+        }
+
+        .cv-detail {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        .cv-download {
+            margin-top: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--mono);
+            font-size: 13px;
+            padding: 10px 16px;
+            border: 1px solid var(--ink);
+            border-radius: 3px;
+            color: var(--ink);
+            text-decoration: none;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+
+        .cv-download:hover {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        /* ---------- Publications (signature element) ---------- */
+
+        .pub {
+            display: grid;
+            grid-template-columns: 34px 1fr;
+            gap: 16px;
+            padding: 20px 0;
+            border-top: 1px solid var(--rule);
+        }
+
+        .pub:first-of-type {
+            border-top: none;
+        }
+
+        .pub-num {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--accent);
+            padding-top: 3px;
+        }
+
+        .pub-title {
+            font-family: var(--serif);
+            font-size: 16.5px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .pub-authors {
+            font-size: 14px;
+            color: var(--ink-soft);
+            margin-top: 4px;
+        }
+
+        .pub-authors .you {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .pub-venue {
+            font-family: var(--mono);
+            font-size: 12.5px;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        .pub-actions {
+            margin-top: 10px;
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .pub-actions a {
+            font-family: var(--mono);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .cite-btn {
+            font-family: var(--mono);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            background: none;
+            border: none;
+            color: var(--link);
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .cite-btn:hover {
+            color: var(--link-hover);
+        }
+
+        .cite-btn.copied {
+            color: var(--accent);
+        }
+
+        .bibtex {
+            display: none;
+            margin-top: 12px;
+            background: var(--paper-dim);
+            border: 1px solid var(--rule);
+            border-radius: 3px;
+            padding: 12px 14px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--ink-soft);
+            white-space: pre-wrap;
+            line-height: 1.55;
+        }
+
+        .bibtex.open {
+            display: block;
+        }
+
+        /* ---------- Contact ---------- */
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 28px;
+            margin-top: 18px;
+        }
+
+        .contact-row a {
+            font-family: var(--mono);
+            font-size: 14px;
+        }
+
+        footer {
+            padding: 32px 0 64px;
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 12px;
+        }
+
+        /* ---------- Responsive ---------- */
+
+        @media (max-width: 560px) {
+            header.hero {
+                padding: 56px 0 40px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 72px 1fr;
+                gap: 18px;
+            }
+
+            .avatar {
+                width: 72px;
+                height: 72px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .cv-item {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+
+            .pub {
+                grid-template-columns: 24px 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="wrap hero-grid">
+            <!-- Replace src with your own photo, e.g. "assets/photo.jpg" -->
+            <img class="avatar" src="assets/E2F6D693-93C0-4B61-998E-0D09D1B1BC45_1_105_c.jpeg"
+                alt="Photo of Hatice Merve Vural">
+            <div>
+                <div class="eyebrow">MSc Student · Computer Science</div>
+                <h1>Hatice Merve Vural</h1>
+                <div class="affil">Department of Computer Science and Engineering <span class="dept">· Koç
+                        University</span>
+                </div>
+                <div class="links">
+                    <a href="mailto:havural24@ku.edu.tr">havural24@ku.edu.tr</a>
+                    <span class="sep">/</span>
+                    <a href="https://www.linkedin.com/in/haticemervevural/" target="_blank" rel="noopener">LinkedIn</a>
+                    <span class="sep">/</span>
+                    <a href="https://github.com/mervehmv" target="_blank" rel="noopener">GitHub</a>
+                    <span class="sep">/</span>
+                    <a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
+                    <span class="sep">/</span>
+                    <a href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
+                    <span class="sep">/</span>
+                    <a href="assets/Vural, Hatice Merve - CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="section-nav">
+        <div class="wrap">
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
+            <a href="#publications">Publications</a>
+            <a href="#research">Research</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="section-num">01</span>
+                    <h2>About</h2>
+                </div>
+                <div class="about-text">
+                    <p>
+                        I'm an MSc student in Computer Science and Engineering at Koç University, working as a
+                        researcher at KUIS AI Lab. My research focuses on multimodal humor understanding and multimodal
+                        reasoning.
+                    </p>
+                    <p>
+                        Before this, I completed my BSc in Computer Science and Engineering at Sabancı University with a
+                        minor in Mathematics.
+                    </p>
+                </div>
+                <div class="interests-tags">
+                    <span>multimodal humor understanding</span>
+                    <span>multimodal reasoning</span>
+                    <span>natural language processing</span>
+                    <span>video understanding</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="section-num">02</span>
+                    <h2>Education</h2>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-date">Sep 2024 — present</div>
+                    <div>
+                        <div class="cv-role">M.Sc. in Computer Science and Engineering</div>
+                        <div class="cv-org">Koç University (Istanbul, Turkey)</div>
+                        <div class="cv-detail">CGPA: 3.91</div>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-date">Aug 2019 — 2024</div>
+                    <div>
+                        <div class="cv-role">B.S. in Computer Science and Engineering</div>
+                        <div class="cv-org">Sabancı University (Istanbul, Turkey)</div>
+                        <div class="cv-detail">CGPA: 3.44 · Minor in Mathematics (CGPA: 3.82)</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="section-num">03</span>
+                    <h2>Research &amp; Teaching Experience</h2>
+                </div>
+
+                <h3 style="font-size: 16px; margin-bottom: 12px; font-family: var(--mono); color: var(--accent);">
+                    Research Experience</h3>
+                <div class="cv-item" style="border-top: none; padding-top: 0;">
+                    <div class="cv-date">Feb 2025 — present</div>
+                    <div>
+                        <div class="cv-role">Researcher</div>
+                        <div class="cv-org">KUIS AI Lab, Koç University</div>
+                        <div class="cv-detail">Enhancing humor understanding, visual perception, and reasoning abilities
+                            of multimodal large language models (MLLMs). Post-training MLLMs to transfer capabilities to
+                            underexplored domains.</div>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-date">Oct 2023 — Jun 2024</div>
+                    <div>
+                        <div class="cv-role">Graduation Project Researcher</div>
+                        <div class="cv-org">Computer Science Laboratory, Sabancı University</div>
+                        <div class="cv-detail">Developed novel domain generalization algorithms to improve
+                            state-of-the-art models, evaluating algorithms and simulating varied data scenarios.</div>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-date">Jun 2023 — Oct 2023</div>
+                    <div>
+                        <div class="cv-role">Undergraduate Research Intern</div>
+                        <div class="cv-org">University of Toronto</div>
+                        <div class="cv-detail">Implemented and compared MCMC algorithms (Metropolis-Hastings and
+                            Langevin) in Python, and analyzed their theoretical convergence rates.</div>
+                    </div>
+                </div>
+
+                <h3
+                    style="font-size: 16px; margin-top: 32px; margin-bottom: 12px; font-family: var(--mono); color: var(--accent);">
+                    Teaching Assistantships</h3>
+                <div class="cv-item" style="border-top: none; padding-top: 0;">
+                    <div class="cv-date">Feb 2025 — present</div>
+                    <div>
+                        <div class="cv-role">Teaching Assistant — COMP 100</div>
+                        <div class="cv-org">Koç University</div>
+                        <div class="cv-detail">Introduction to Computer Science and Programming (Python). Assisting
+                            students, conducting labs, and grading.</div>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-date">Sep 2024 — Feb 2025</div>
+                    <div>
+                        <div class="cv-role">Teaching Assistant — COMP 106</div>
+                        <div class="cv-org">Koç University</div>
+                        <div class="cv-detail">Discrete Mathematics for CS and Engineering. Conducting weekly
+                            problem-solving sessions and quizzes.</div>
+                    </div>
+                </div>
+
+                <a class="cv-download" href="assets/Vural, Hatice Merve - CV.pdf" target="_blank" rel="noopener">↓
+                    Download full CV (PDF)</a>
+            </div>
+        </section>
+
+        <!-- PUBLICATIONS -->
+        <section id="publications">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="section-num">04</span>
+                    <h2>Publications &amp; Preprints</h2>
+                </div>
+
+                <div class="pub">
+                    <div class="pub-num">[1]</div>
+                    <div>
+                        <div class="pub-title">Learning to Think Like a Cartoon Captionist: Incongruity-Resolution
+                            Supervision for Multimodal Humor Understanding</div>
+                        <div class="pub-authors"><span class="you">Vural, H. M.</span>, Kukul, D., Ozlu, E. G., Arikan,
+                            D. E., Mankoff, B., Erdem, E., &amp; Erdem, A.</div>
+                        <div class="pub-venue">arXiv preprint arXiv:2604.15210, 2026 (Under Review)</div>
+                        <div class="pub-actions">
+                            <a href="https://arxiv.org/abs/2604.15210" target="_blank" rel="noopener">arXiv</a>
+                            <a href="https://cyberiada.github.io/NYCC-Thinking/" target="_blank" rel="noopener">Project Page</a>
+                            <button class="cite-btn" data-bibtex="bibtex-1" onclick="toggleCite(this)">Cite</button>
+                        </div>
+                        <pre class="bibtex" id="bibtex-1">@article{vural2026learning,
+  title={Learning to Think Like a Cartoon Captionist: Incongruity-Resolution Supervision for Multimodal Humor Understanding},
+  author={Vural, Hatice Merve and Kukul, Doga and Ozlu, Ege Erdem and Arikan, Demir Ekin and Mankoff, Bob and Erdem, Erkut and Erdem, Aykut},
+  journal={arXiv preprint arXiv:2604.15210},
+  year={2026}
+}</pre>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- RESEARCH INTERESTS -->
+        <section id="research">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="section-num">05</span>
+                    <h2>Research Interests</h2>
+                </div>
+                <p>
+                    My research interests lie at the intersection of multimodal perception and natural language
+                    understanding. I am particularly excited about:
+                </p>
+                <p>
+                    <strong style="color:var(--ink)">Multimodal humor understanding.</strong> Studying how
+                    vision-language models can comprehend complex, incongruous relationships (like cartoons and caption
+                    contests).
+                </p>
+                <p>
+                    <strong style="color:var(--ink)">Multimodal reasoning.</strong> Improving the logical and conceptual
+                    capacity of large language models when integrated with vision and other modalities.
+                </p>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="section-num">06</span>
+                    <h2>Contact</h2>
+                </div>
+                <p>Feel free to reach out via email for research discussions, collaborations, or inquiries.</p>
+                <div class="contact-row">
+                    <a href="mailto:havural24@ku.edu.tr">havural24@ku.edu.tr</a>
+                    <a href="https://github.com/mervehmv" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://www.linkedin.com/in/haticemervevural/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="wrap">made by © mervehmv 2026</div>
+    </footer>
+
+    <script>
+        function toggleCite(btn) {
+            var id = btn.getAttribute('data-bibtex');
+            var el = document.getElementById(id);
+            var isOpen = el.classList.contains('open');
+
+            // close any other open citations
+            document.querySelectorAll('.bibtex.open').forEach(function (b) { b.classList.remove('open'); });
+            document.querySelectorAll('.cite-btn.copied').forEach(function (b) { b.classList.remove('copied'); b.textContent = 'Cite'; });
+
+            if (!isOpen) {
+                el.classList.add('open');
+                // copy to clipboard
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(el.textContent).then(function () {
+                        btn.textContent = 'Copied ✓';
+                        btn.classList.add('copied');
+                    }).catch(function () { });
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
