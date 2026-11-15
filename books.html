@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books — Merve Vural</title>
+    <meta name="description" content="Books Merve Vural has read and really liked.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --paper: #FAF9F6;
+            --paper-dim: #F2F0EA;
+            --ink: #1B1F27;
+            --ink-soft: #4A4E57;
+            --muted: #6B6F76;
+            --rule: #DCD7CA;
+            --accent: #2F6E62;
+            --accent-dim: #9CC4B9;
+            --link: #1F5C73;
+            --link-hover: #143E4D;
+
+            --serif: 'Source Serif 4', Georgia, serif;
+            --sans: 'Inter', -apple-system, sans-serif;
+            --mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+            --max-w: 980px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        a {
+            color: var(--link);
+            text-decoration-color: var(--accent-dim);
+            text-underline-offset: 3px;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
+
+        .wrap {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---------- Header ---------- */
+
+        .back {
+            display: inline-block;
+            margin-top: 32px;
+            font-family: var(--mono);
+            font-size: 12.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--ink-soft);
+            text-decoration: none;
+        }
+
+        .back:hover {
+            color: var(--accent);
+        }
+
+        header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid var(--rule);
+            opacity: 0;
+            animation: rise 0.7s ease forwards;
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .eyebrow {
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: var(--serif);
+            font-weight: 600;
+            font-size: 40px;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+        }
+
+        .intro {
+            margin-top: 12px;
+            color: var(--ink-soft);
+            max-width: 60ch;
+            font-size: 15.5px;
+        }
+
+        /* ---------- Shelf ---------- */
+
+        .shelf {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 40px 28px;
+            padding: 48px 0 24px;
+        }
+
+        .book {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .cover {
+            position: relative;
+            aspect-ratio: 2 / 3;
+            border-radius: 2px 5px 5px 2px;
+            overflow: hidden;
+            background: var(--paper-dim);
+            box-shadow:
+                0 1px 2px rgba(27, 31, 39, 0.10),
+                0 8px 20px -8px rgba(27, 31, 39, 0.35);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        /* a little spine shading on the left edge */
+        .cover::after {
+            content: "";
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 8px;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.18), rgba(255, 255, 255, 0.08), transparent);
+            pointer-events: none;
+        }
+
+        .cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .book:hover .cover,
+        .book:focus-visible .cover {
+            transform: translateY(-6px) rotate(-1deg);
+            box-shadow:
+                0 2px 4px rgba(27, 31, 39, 0.10),
+                0 18px 30px -10px rgba(27, 31, 39, 0.45);
+        }
+
+        /* fallback when no cover image is available */
+        .cover.placeholder {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 18px 14px 14px 20px;
+            background: var(--accent);
+            color: var(--paper);
+        }
+
+        .cover.placeholder .ph-title {
+            font-family: var(--serif);
+            font-weight: 600;
+            font-size: 17px;
+            line-height: 1.25;
+        }
+
+        .cover.placeholder .ph-author {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            opacity: 0.85;
+        }
+
+        .meta {
+            margin-top: 14px;
+        }
+
+        .title {
+            font-family: var(--serif);
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 1.3;
+            color: var(--ink);
+        }
+
+        .author {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .note {
+            font-size: 13px;
+            color: var(--ink-soft);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        footer {
+            padding: 32px 0 64px;
+            margin-top: 32px;
+            border-top: 1px solid var(--rule);
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 12px;
+        }
+
+        @media (max-width: 560px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .shelf {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px 18px;
+                padding-top: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+        <a class="back" href="index.html">← Back to home</a>
+    </div>
+
+    <header>
+        <div class="wrap">
+            <div class="eyebrow">Outside the lab</div>
+            <h1>Books I Loved</h1>
+            <p class="intro">A shelf of books I have read and really liked.</p>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <div class="shelf" id="shelf"></div>
+    </main>
+
+    <footer>
+        <div class="wrap">© made by mervehmv 2026</div>
+    </footer>
+
+    <script>
+        /*
+         * ===== EDIT YOUR BOOKS HERE =====
+         * Each book needs a title and author. For the cover, give ONE of:
+         *   isbn:  the book's ISBN — the cover is fetched from Open Library automatically
+         *   cover: a path to your own image, e.g. "assets/books/my-book.jpg"
+         *   coverId: an Open Library cover id, to pick one specific cover (overrides isbn for the image)
+         * Optional:
+         *   note:  a short line about why you liked it
+         * If no cover is found, a coloured placeholder with the title is shown instead.
+         */
+        const BOOKS = [
+            { title: "Pachinko", author: "Min Jin Lee", coverId: 8044605 },
+            { title: "The Catcher in the Rye", author: "J. D. Salinger", coverId: 9273490 },
+            { title: "The Earthsea Cycle", author: "Ursula K. Le Guin", coverId: 8259267 },
+            { title: "Maus", author: "Art Spiegelman", coverId: 13845121 },
+            { title: "Ducks: Two Years in the Oil Sands", author: "Kate Beaton", coverId: 12554333 },
+            { title: "5 Centimeters per Second", author: "Makoto Shinkai", isbn: "9781932234961" },
+            { title: "Kitchen", author: "Banana Yoshimoto", coverId: 569477 },
+            { title: "Strange Weather in Tokyo (Sensei no Kaban)", author: "Hiromi Kawakami", isbn: "9781640090163" },
+            { title: "Frieren: Beyond Journey's End", author: "Kanehito Yamada & Tsukasa Abe", isbn: "9781974725762" },
+            { title: "The Hitchhiker's Guide to the Galaxy", author: "Douglas Adams", coverId: 12986869 },
+            { title: "The Fountainhead", author: "Ayn Rand", coverId: 6767765 },
+            { title: "The Ones Who Walk Away from Omelas", author: "Ursula K. Le Guin", coverId: 8700269 }
+        ];
+
+        function el(tag, cls, text) {
+            const e = document.createElement(tag);
+            if (cls) e.className = cls;
+            if (text) e.textContent = text;
+            return e;
+        }
+
+        function placeholder(cover, book) {
+            cover.classList.add('placeholder');
+            cover.replaceChildren(el('div', 'ph-title', book.title), el('div', 'ph-author', book.author));
+        }
+
+        const shelf = document.getElementById('shelf');
+
+        BOOKS.forEach(function (book) {
+            const card = el('div', 'book');
+
+            const cover = el('div', 'cover');
+            const src = book.cover || (book.coverId ? 'https://covers.openlibrary.org/b/id/' + book.coverId + '-L.jpg' : null) || (book.isbn ? 'https://covers.openlibrary.org/b/isbn/' + book.isbn + '-L.jpg?default=false' : null);
+            if (src) {
+                const img = new Image();
+                img.alt = 'Cover of ' + book.title;
+                img.loading = 'lazy';
+                img.onerror = function () { placeholder(cover, book); };
+                img.src = src;
+                cover.appendChild(img);
+            } else {
+                placeholder(cover, book);
+            }
+
+            const meta = el('div', 'meta');
+            meta.appendChild(el('div', 'title', book.title));
+            meta.appendChild(el('div', 'author', book.author));
+            if (book.note) meta.appendChild(el('div', 'note', book.note));
+
+            card.appendChild(cover);
+            card.appendChild(meta);
+            shelf.appendChild(card);
+        });
+    </script>
+
+</body>
+
+</html>
